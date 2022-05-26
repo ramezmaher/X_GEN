@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>XGEN</title>
+  </head>
+  <body style="background: rgb(220, 255, 255)">
+    <p>
+    <h1 style="text-align: center; color: rgb(0, 102, 102);"><em>XGEN</em>: <em>X</em>ray report <em>GEN</em>erator</h1>
+    </p>
+
+    <p>
+    <img src="https://miro.medium.com/max/1400/1*-G85uEegwKKSTP-Wpu6pfw.png" alt="XGEN" >
+    </p>
+
+    <form method="post" enctype="multipart/form-data" style="margin-top: 50px; margin-bottom: 30px;">
+      {% csrf_token %}
+      {{ form }}
+      <button type="submit" id="btnUpload" class="btn btn-primary">Upload</button>
+    </form>
+    {% if image1_uri is not None %}
+      <img src="{{ image1_uri }}" class="img-fluid" alt="Uploaded image"
+         style="max-width: min(500px, 100%); height: auto; margin-top: 30px;">
+      <img src="{{ image2_uri }}" class="img-fluid" alt="Uploaded image"
+         style="max-width: min(500px, 100%); height: auto; margin-top: 30px;">
+      <div>
+        History: <b> {{history}}</b>
+      </div>
+      </br>
+      {% if result is not None %}
+        <div class="alert alert-primary" role="alert">
+          Result: <b>{{ result }}</b>
+          </div>
+      {% else %}
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div class="alert alert-danger" role="alert">
+              Error! No results generated!
+          </div>
+      {% endif %}
+    {% endif %}
+  </body>
+</html>
