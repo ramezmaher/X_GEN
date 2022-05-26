@@ -38,7 +38,7 @@ class Model:
         int_model = nn.DataParallel(int_model).cuda()
         self.model = ClsGenInt(cls_gen_model.module.cpu(), int_model.module.cpu(), freeze_evaluator=True)
         self.model = nn.DataParallel(self.model).cuda()
-        checkpoint = torch.load('/content/drive/MyDrive/XRay_WebApp/Backend/input/model.pt')
+        checkpoint = torch.load('/content/X_GEN/XRay_WebApp/Backend/input/model.pt')
         self.model.load_state_dict(checkpoint['model_state_dict'])
 
     def get_report(self, history, device='cpu', threshold=None):

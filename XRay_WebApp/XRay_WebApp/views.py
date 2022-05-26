@@ -31,7 +31,7 @@ def home(request):
             image2_uri = 'data:%s;base64,%s' % ('image2/jpeg', encoded_img2)
 
             try:
-              result = getPredictions('/content/drive/MyDrive/XRay_WebApp/Backend/input', history, image1, image2)
+              result = getPredictions('/content/X_GEN/XRay_WebApp/Backend/input/', history, image1, image2)
             except RuntimeError as re:
               print(re)
     else:

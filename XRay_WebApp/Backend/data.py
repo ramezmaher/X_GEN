@@ -9,7 +9,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 class DataReader:
     def __init__(self, dir, image0, image1, vocab_file):
-        self.vocab = spm.SentencePieceProcessor(model_file='/content/drive/MyDrive/XRay_WebApp/Backend/input/vocab.model')
+        self.vocab = spm.SentencePieceProcessor(model_file='/content/X_GEN/XRay_WebApp/Backend/input/vocab.model')
         self.transform = transforms.Compose([transforms.Resize((256, 256)), transforms.ToTensor()])
         self.images = [image0, image1]
         self.max_len = 1000
